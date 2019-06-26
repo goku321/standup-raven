@@ -153,7 +153,7 @@ changelog: dist
 	@echo "Installing what-the-changelog"
 	@cd webapp && npm i -D	
 	@echo "Installing ghr"
-	@go get -u github.com/tcnksm/ghr
+	@go get -u github.com/jatinjtg/ghr
 	@echo "Generating changelog"
 	./webapp/node_modules/what-the-changelog/lib/index.js standup-raven standup-raven '.' 'security,added,changed,deprecated,removed,fixed,long term' 'docs/assets/images/resolutions' > changelog.txt
     
