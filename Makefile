@@ -157,5 +157,5 @@ changelog: dist
 	@echo "Generating changelog"
 	./webapp/node_modules/what-the-changelog/lib/index.js standup-raven standup-raven '.' 'security,added,changed,deprecated,removed,fixed,long term' 'docs/assets/images/resolutions' > changelog.txt
     
-release: changelog
-	ghr -f "changelog.txt" -t $(GITHUB_TOKEN) -u $(ORG_NAME) -r $(REPO_NAME) $(PLUGINVERSION) -draft -delete dist/
+release:
+	ghr -f "changelog.txt" -t $(GITHUB_TOKEN) -u $(ORG_NAME) -r $(REPO_NAME) -draft -delete $(PLUGINVERSION) dist/
