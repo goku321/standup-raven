@@ -29,8 +29,7 @@ func baseMock() *plugintest.API {
 	mockConfig := &config.Configuration{
 		Location: location,
 	}
-	fakeTime := time.Date(2019, time.May, 19, 10, 2, 3, 4, time.UTC)
-	monkey.Patch(time.Now, func() time.Time { return fakeTime })
+	
 
 	config.SetConfig(mockConfig)
 
