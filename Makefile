@@ -155,8 +155,7 @@ changelog: dist
 	@echo "Installing ghr"
 	@go get -u github.com/tcnksm/ghr
 	@echo "Generating changelog"
-	./webapp/node_modules/what-the-changelog/lib/index.js standup-raven standup-raven '.' 'security,added,changed,deprecated,removed,fixed,long term' 'docs/assets/images/resolutions' > changelog.txt
     
 release: changelog
-	ghr -body="$$(cat changelog.txt)" -t $(GITHUB_TOKEN) -u $(ORG_NAME) -r $(REPO_NAME) -draft -delete $(PLUGINVERSION) dist/
+	ghr -body="$$(./webapp/node_modules/what-the-changelog/lib/index.js standup-raven standup-raven '.' 'security,added,changed,deprecated,removed,fixed,long term' 'docs/assets/images/resolutions')" -t $(GITHUB_TOKEN) -u $(ORG_NAME) -r $(REPO_NAME) -draft -delete $(PLUGINVERSION) dist/
 
